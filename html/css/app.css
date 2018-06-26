@@ -1,0 +1,62 @@
+/* Write your styles */
+body {
+    display: block;
+    margin: 0px;
+}
+.am-container {
+    padding:0 !important;
+    max-width: 640px !important;
+    display: block;
+    margin: 0 auto;
+}
+.header {
+    text-align: center;
+}
+.header h1 {
+    font-size: 200%;
+    color: #333;
+    margin-top: 30px;
+}
+.header p {
+    font-size: 14px;
+}
+.img {
+    width: 100% !important;
+    height: auto !important;
+}
+.ad-img{
+    display: block;
+    position: relative;
+
+}
+.ad{
+    display: block;
+    position: absolute;
+    z-index: 0;
+}
+.ad-2,.ad-3,.ad-4,.ad-5{
+    display: block;
+    position: absolute;
+    z-index: 100;
+}
+.ad-1{
+    display: block;
+    position: relative;
+    z-index: 100;
+}
+.wow{
+    animation-delay:.3s;
+}
+.am-btn-warning {
+    color: #fff;
+    background-color: #F37B1D;
+    border-color: #F37B1D;
+    border-radius: 8px;
+    line-height: 2.4rem;
+    -webkit-box-shadow: 0 7px 0 #ec5507, 0 8px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 7px 0 #ec5507, 0 8px 3px rgba(0, 0, 0, 0.3);
+}
+.am-btn-warning:hover {
+    -webkit-box-shadow: 0 7px 0 #902500, 0 8px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 7px 0 #902500, 0 8px 3px rgba(0, 0, 0, 0.3);
+}

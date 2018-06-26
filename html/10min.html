@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="页面描述">
+    <meta name="keywords" content="关键字">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <title>广告落地页集合</title>
+    <!-- 设置360浏览器 -->
+    <meta name="renderer" content="webkit">
+    <!-- 防止百度抓取-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <!-- 兼容安卓Chrome浏览器 -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="img/app-icon72x72@2x.png">
+    <!-- 兼容苹果浏览器 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <link rel="apple-touch-icon-precomposed" href="img/app-icon72x72@2x.png">
+
+    <!-- 在电脑上的视图 -->
+    <meta name="msapplication-TileImage" content="img/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#0e90d2">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <link rel="stylesheet" href="css/amazeui.min.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+    以获得更好的体验！</p>
+<![endif]-->
+
+<div class="am-container">
+
+    <div class="ad-img">
+        <div class="ad">
+            <img src="img/10min/titad.jpg" class="img"></div>
+        <div class="ad-1">
+            <img src="img/10min/tit.png" class="img wow fadeInLeftBig">
+        </div>
+    </div>
+    <div style="padding: 8px">
+        <div style="font-size:.8rem;color:#565656;position:relative;height:3rem;text-align:center;width:100%">
+            <div style="position:absolute;top:0;left:0;z-index:1;text-align:center;width:100%">
+                <div style="background-color:white;padding:0px 10px;line-height:3rem;z-index:1;display:inline-block;">
+                </div>
+            </div>
+            <div style="border-top:solid 1px #e7e7e7;height:1px;width:100%;position:absolute;top:50%;"></div>
+        </div>
+    </div>
+    <div class="ad-img">
+
+        <img src="img/10min/con-1.jpg" class="img">
+    </div>
+    <div style="padding: 8px">
+        <div style="font-size:1.6rem;color:#565656;position:relative;height:3rem;text-align:center;width:100%">
+            <div style="position:absolute;top:0;left:0;z-index:1;text-align:center;width:100%">
+                <div style="background-color:white;padding:0px 10px;line-height:3rem;z-index:1;display:inline-block;">
+                    目前已有<span style="font-size: 2.2rem">100</span>人参加活动</div>
+            </div>
+            <div style="border-top:solid 1px #e7e7e7;height:1px;width:100%;position:absolute;top:50%;"></div>
+        </div>
+    </div>
+    <div class="am-u-lg-8 am-u-md-8  am-u-sm-10 am-u-sm-centered">
+        <form method="post" class="am-form">
+            <br>
+            <label for="name" style="font-size: 1.4rem">姓名 <span style="color: red">*</span> </label>
+            <input type="text" name="" id="name" value="" style="border-radius: 8px">
+            <br>
+            <label for="tel"  style="font-size: 1.4rem">电话 <span style="color: red">*</span> </label>
+            <input type="tel" name="" id="tel" value="" style="border-radius: 8px">
+            <br>
+            <label for="email" style="font-size: 1.4rem">邮箱 <span style="color: red">*</span> </label>
+            <input type="email" name="" id="email" value="" style="border-radius: 8px">
+            <br>
+            <label for="" style="font-size: 1.4rem">验证码 <span style="color: red">*</span> </label><br>
+            <span style="float: left;width: 35%"><input type="email" id="doc-ipt-3" placeholder=""
+                                                        style="border-radius: 8px"></span>
+            <span style="float: right;width:65%;text-align: right">
+            <canvas id="canvas" width="120"
+                                                                                height="40"></canvas><br>
+                    <a href="#" id="changeImg" style="font-size: .5rem">看不清，换一张</a><br><br>
+                    <script>
+                        /**生成一个随机数**/
+                        function randomNum(min,max){
+                            return Math.floor( Math.random()*(max-min)+min);
+                        }
+                        /**生成一个随机色**/
+                        function randomColor(min,max){
+                            var r = randomNum(min,max);
+                            var g = randomNum(min,max);
+                            var b = randomNum(min,max);
+                            return "rgb("+r+","+g+","+b+")";
+                        }
+                        drawPic();
+                        document.getElementById("changeImg").onclick = function(e){
+                            e.preventDefault();
+                            drawPic();
+                        }
+
+                        /**绘制验证码图片**/
+                        function drawPic(){
+                            var canvas=document.getElementById("canvas");
+                            var width=canvas.width;
+                            var height=canvas.height;
+                            var ctx = canvas.getContext('2d');
+                            ctx.textBaseline = 'bottom';
+
+                            /**绘制背景色**/
+                            ctx.fillStyle = randomColor(180,240); //颜色若太深可能导致看不清
+                            ctx.fillRect(0,0,width,height);
+                            /**绘制文字**/
+                            var str = 'ABCEFGHJKLMNPQRSTWXY123456789';
+                            for(var i=0; i<4; i++){
+                                var txt = str[randomNum(0,str.length)];
+                                ctx.fillStyle = randomColor(50,160);  //随机生成字体颜色
+                                ctx.font = randomNum(15,40)+'px SimHei'; //随机生成字体大小
+                                var x = 10+i*25;
+                                var y = randomNum(25,45);
+                                var deg = randomNum(-45, 45);
+                                //修改坐标原点和旋转角度
+                                ctx.translate(x,y);
+                                ctx.rotate(deg*Math.PI/180);
+                                ctx.fillText(txt, 0,0);
+                                //恢复坐标原点和旋转角度
+                                ctx.rotate(-deg*Math.PI/180);
+                                ctx.translate(-x,-y);
+                            }
+                            /**绘制干扰线**/
+                            for(var i=0; i<8; i++){
+                                ctx.strokeStyle = randomColor(40,180);
+                                ctx.beginPath();
+                                ctx.moveTo( randomNum(0,width), randomNum(0,height) );
+                                ctx.lineTo( randomNum(0,width), randomNum(0,height) );
+                                ctx.stroke();
+                            }
+                            /**绘制干扰点**/
+                            for(var i=0; i<100; i++){
+                                ctx.fillStyle = randomColor(0,255);
+                                ctx.beginPath();
+                                ctx.arc(randomNum(0,width),randomNum(0,height), 1, 0, 2*Math.PI);
+                                ctx.fill();
+                            }
+                        }
+                    </script></span>
+
+            <br>
+            <div class="am-cf am-text-center" style="font-size: 1rem">
+                <button
+                        type="button"
+                        class="am-btn am-btn-warning am-btn-block"
+                        data-am-modal="{target: '#my-alert'}">
+                    马上领取赠金
+                </button>
+            </div>
+            <br>
+            <br>
+        </form>
+    </div>
+
+    <div class="ad-img">
+        <div class="ad">
+            <img src="img/10min/con-2.jpg" class="img"></div>
+        <div class="ad-2">
+            <img src="img/10min/con-2-1.png" class="img wow bounceIn" style="animation-delay:.5s;">
+        </div>
+        <div class="ad-2">
+            <img src="img/10min/con-2-2.png" class="img wow bounceIn" style="animation-delay:1s;">
+        </div>
+        <div class="ad-2">
+            <img src="img/10min/con-2-3.png" class="img wow bounceIn" style="animation-delay:1.5s;">
+        </div>
+        <div class="ad-2">
+            <img src="img/10min/con-2-4.png" class="img wow bounceIn" style="animation-delay:2s;">
+        </div>
+        <div class="ad-2">
+            <img src="img/10min/con-2-5.png" class="img wow bounceIn" style="animation-delay:2.5s;">
+        </div>
+        <div class="ad-2">
+            <img src="img/10min/con-2-6.png" class="img wow bounceIn" style="animation-delay:3s;">
+        </div>
+        <div class="ad-2">
+            <img src="img/10min/con-2-7.png" class="img wow bounceIn" style="animation-delay:3.5s;">
+        </div>
+        <div class="ad-1">
+            <img src="img/10min/con-2-8.png" class="img wow bounceIn" style="animation-delay:4s;">
+        </div>
+
+
+    </div>
+    <div style="padding: 8px">
+        <div style="font-size:1.6rem;color:#565656;position:relative;height:3rem;text-align:center;width:100%">
+            <div style="position:absolute;top:0;left:0;z-index:1;text-align:center;width:100%">
+                <div style="background-color:white;padding:0px 10px;line-height:3rem;z-index:1;display:inline-block;">
+                    <span style="font-size: 2.2rem">参与活动</span></div>
+            </div>
+            <div style="border-top:solid 1px #e7e7e7;height:1px;width:100%;position:absolute;top:50%;"></div>
+        </div>
+    </div>
+    <div class="am-u-lg-8 am-u-md-8  am-u-sm-10 am-u-sm-centered">
+        <form method="post" class="am-form">
+            <br>
+            <label for="name" style="font-size: 1.4rem">姓名 <span style="color: red">*</span> </label>
+            <input type="text" name="" id="name" value="" style="border-radius: 8px">
+            <br>
+            <label for="tel"  style="font-size: 1.4rem">电话 <span style="color: red">*</span> </label>
+            <input type="tel" name="" id="tel" value="" style="border-radius: 8px">
+            <br>
+            <label for="email" style="font-size: 1.4rem">邮箱 <span style="color: red">*</span> </label>
+            <input type="email" name="" id="email" value="" style="border-radius: 8px">
+            <br>
+            <div class="am-cf am-text-center" style="font-size: 1rem">
+                <input type="submit" name="" value="即可领取 高额赠金" class="am-btn am-btn-warning am-btn-block">
+                <br>
+                FXBTG 受新西兰金融市场行为监管局（FSP）认可及监管<br>
+
+                注册编号：FSP319786
+            </div>
+            <br>
+            <br>
+
+        </form>
+    </div>
+
+</div>
+<footer style="text-align: center;font-size: 1.2rem">
+    <div class="am-u-lg-2 am-u-md-2  am-u-sm-4 am-u-sm-centered" style="font-size: 1rem;text-align: center">
+    <img src="img/2.jpg" class="img"><br>
+    长按二维码关注我<br>
+    <br>
+        </div>
+<hr>
+    <div class="am-container">
+<a href="tel:4006621782" class="am-text-warning">400-662-1782</a><br>
+<a href="https://www.fxbtg-chinese.com" class="am-text-warning">www.fxbtg-chinese.com</a><br>
+FXBTG Financial Limited<br>
+<br><br>
+<span style="float: right;padding-right: 10px;color: gray">投资有风险-交易需谨慎</span><br>
+<br></div>
+    </footer>
+<div class="am-modal am-modal-alert" tabindex="-1" id="my-alert">
+    <div class="am-modal-dialog">
+        <div class="am-modal-hd">注册成功</div>
+        <div class="am-modal-bd">
+            谢谢注册FXBTG
+        </div>
+        <div class="am-modal-footer">
+            <span class="am-modal-btn">确定</span>
+        </div>
+    </div>
+</div>
+<!--js代码框架部分-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="js/amazeui.min.js"></script>
+<script src="http://cdn.dowebok.com/131/js/wow.min.js"></script>
+<script>
+    if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
+        new WOW().init();
+    };
+</script>
+</body>
+</html>
